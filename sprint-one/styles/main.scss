@@ -6,6 +6,8 @@
         box-sizing: border-box;
     }
 
+    // Header styling
+
 .header{
     background-color: $bandsite-black;
     color: $white;
@@ -23,11 +25,9 @@
     @include font-family-normal;
     @include font-properties(24px, 32px);
     @include logo-sizing;
-    margin: 16px;
+    margin:16px 16px;
         @include tablet {
-            margin-top: 0;
-            margin-left: 36px;
-            margin-bottom: 0;
+            margin:0 36px;
             max-height: 100%;
         }
         @include desktop {
@@ -80,6 +80,8 @@
     }
 }
 
+// Hero Image Styling
+
 .flowers{
     background-image: url("../assets/images/hero-bio.jpg");
     background-size: cover;
@@ -96,7 +98,7 @@
     &__title{
         @include font-family-bold;
         @include font-properties(24px, 32px);
-        @include mobile-padding;
+        @include mobile-side-padding;
         color: $white;
         position: relative;
         z-index: 1;        
@@ -118,13 +120,14 @@
         opacity: 0.5;
     }
 }
+// About styling
 
 .about {
 
     &-one {
-        @include mobile-padding;
+        @include mobile-side-padding;
             @include tablet {
-                @include tablet-padding;
+                @include tablet-side-padding;
             }
             @include desktop {
                 padding: 36px 128px;
@@ -159,7 +162,7 @@
                 margin:0 36px;
             }
             @include desktop {
-                margin:0 64px;
+                margin:0 80px;
             }
     }
 
@@ -173,7 +176,7 @@
             padding-bottom: 36px;
             
             @include desktop {
-                margin:0 64px;
+                margin:0 80px;
             }
             &--size {
                 @include tablet {
@@ -187,9 +190,9 @@
     }
 
     &-two {
-        @include mobile-padding;
+        @include mobile-side-padding;
         @include tablet {
-            @include tablet-padding;
+            @include tablet-side-padding;
                 display: flex;
                 flex-wrap: wrap;
                 padding-top: 48px;
@@ -204,17 +207,18 @@
     &__title-two {
         @include font-family-bold;
         @include font-properties(14px, 22px);
-        @include mobile-padding;
+        @include mobile-side-padding;
         margin: 0;
         @include tablet {
-            @include tablet-padding;
+            @include tablet-side-padding;
             @include font-properties(24px, 32px);
             margin: 0;
             width: 100%;
             padding-bottom: 36px;
         }
         @include desktop {
-            padding:0 64px;
+            padding:0 80px;
+            padding-bottom: 36px;
         }
     }
 
@@ -229,7 +233,7 @@
                     padding-right: 0;
                     padding-left: 36px;
                     @include desktop {
-                        padding-left: 64px;
+                        padding-left: 80px;
                     }
         }
         &--padding {
@@ -242,18 +246,20 @@
     }
 }
 
-          
+        //   Gallery styling
 .gallery {
-    @include mobile-padding;
+    @include mobile-side-padding;
     background-color: $alabaster;
     display: flex;
     flex-direction: column;
     @include tablet {
         padding: 0;
         }
-    &-photos {
+
+        // The Photo Gallery Container
+    &-wrapper {
         @include tablet {
-            @include tablet-padding;
+            @include tablet-side-padding;
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
@@ -263,16 +269,7 @@
 
         }
     }
-    &-block {
-        @include tablet {
-
-            display: flex;
-            max-width: 100%;
-            justify-content: center;
-
-        }   
-    }
-
+   
 
     &__title {
     @include font-family-bold;
@@ -282,14 +279,14 @@
     padding-top: 24px;
     padding-bottom: 16px;
         @include tablet {
-            @include tablet-padding;
+            @include tablet-side-padding;
             @include font-properties(36px, 44px);
             width: 100%;
             padding-top: 48px;
             padding-bottom: 36px;
         }
             @include desktop {
-            padding: 0 128px;
+            padding: 48px 128px 0px;
             margin-bottom: 0;
         }
     }
@@ -297,10 +294,17 @@
     &__image {
         max-width: 100%;
         margin-bottom: 16px;
+        filter: grayscale(100%);
+        transition: filter 1s;
         @include tablet {
             max-width: 32%;
             padding-bottom: 24px;
             margin-bottom: 0;
+        }
+
+        &:hover {
+            filter: grayscale(0%);
+
         }
         
 
@@ -313,11 +317,11 @@
 }
 
       
-
+// footer styling
 
 
 .footer {
-    @include mobile-padding;
+    @include mobile-side-padding;
     color: white;
     background-color: $bandsite-black;
     padding-top: 16px;
@@ -329,6 +333,7 @@
             padding: 36px 128px;
             margin:0 auto;
         }
+        // Top block
     &-blockone {
         @include tablet {
             display: flex;
@@ -372,6 +377,7 @@
                 }
             }
         }
+        // Middle block
     &-blocktwo {
         @include tablet {
             display: flex;
@@ -444,10 +450,8 @@
                 display: block;
             }
         }
-   
     }
-
-    
+    // last block
     &__copyright {
             @include font-family-normal;
             @include font-properties(13px, 18px);
@@ -455,11 +459,9 @@
                 @include tablet {
                     @include font-properties(14px, 20px);
                     width: 100%;
-                    
                 }
                 @include desktop {
                     justify-content: flex-start;
-                
                 }
     }
 }
