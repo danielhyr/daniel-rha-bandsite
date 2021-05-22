@@ -1,0 +1,71 @@
+@use "./typography" as*;
+@use "./variables" as*;
+
+
+@mixin font-properties ($text-size, $line-height) {
+    font-size: $text-size;
+    line-height: $line-height;
+    @content;
+}
+
+@mixin mobile-padding {
+    padding:0 16px;
+    @content;
+}
+
+
+@mixin tablet-padding {
+    padding:0 36px;
+    @content;
+}
+
+
+@mixin logo-sizing {
+    max-height: 20px;
+    max-width: 120px;
+    text-decoration: none;
+    color: $white;
+    @content;
+}
+
+// mixins for media queries
+
+@mixin tablet {
+    @media (min-width: $tablet-breakpoint) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: $desktop-breakpoint) {
+        @content;
+    }
+}
+
+
+// font face mixins
+
+@mixin font-family-normal {
+    font-family: "Avenir";
+    font-weight: 400;
+    font-style: normal;
+    @content;
+}
+
+
+@mixin font-family-bold {
+    font-family: "Avenir";
+    font-weight: 600;
+    font-style: normal;
+    @content;
+
+}
+
+
+@mixin font-family-bolder {
+    font-family: "Avenir";
+    font-weight: 700;
+    font-style: normal;
+    @content;
+
+}
