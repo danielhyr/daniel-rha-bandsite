@@ -1,4 +1,4 @@
-
+// Color variables
 $bandsite-black: #323232;
 $bandsite-darkblack: #000000;
 $silver: #AFAFAF;
@@ -6,5 +6,12 @@ $mercury: #E1E1E1;
 $white: white;
 $alabaster: #FAFAFA;
 
+// Breakpoint variables
+
 $tablet-breakpoint: 768px;
 $desktop-breakpoint: 1278px;
+
+// Created variables for certain spacing sizes that had to be experimented with a lot, or may be a target for changes in the future
+
+$nonmobile-general-spacing: 36px;
+$desktop-side-spacing: 128px;
