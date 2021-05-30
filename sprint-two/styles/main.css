@@ -731,19 +731,21 @@ input::placeholder {
   }
 }
 .comments-form-wrapper__label {
+  color: #AFAFAF;
   font-family: "Avenir";
-  font-weight: 400;
+  font-weight: 600;
   font-style: normal;
   font-size: 12px;
   line-height: 20px;
   margin-top: 16px;
+  margin-bottom: 4px;
 }
 .comments-form-wrapper__name {
   min-height: 36px;
   border-radius: 5px;
   padding: 12px;
   background-color: #FAFAFA;
-  border: 1px solid #AFAFAF;
+  border: 1px solid #E1E1E1;
 }
 @media (min-width: 768px) {
   .comments-form-wrapper__name {
@@ -766,7 +768,7 @@ input::placeholder {
 .comments-form-wrapper__comment {
   height: 96px;
   padding-left: 10px;
-  border: 1px solid #AFAFAF;
+  border: 1px solid #E1E1E1;
   border-radius: 5px;
   background-color: #FAFAFA;
   padding-bottom: 70px;
@@ -797,6 +799,10 @@ input::placeholder {
   border: none;
   color: white;
   background-color: #323232;
+}
+.comments-form-wrapper__button:hover {
+  background-color: black;
+  color: #AFAFAF;
 }
 @media (min-width: 768px) {
   .comments-form-wrapper__button {

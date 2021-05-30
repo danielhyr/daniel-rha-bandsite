@@ -325,9 +325,11 @@
             }
 
             &__label {
-                @include font-family-normal;
+                color: $silver;
+                @include font-family-bold;
                 @include font-properties(12px, 20px);
                 margin-top: $sixteen;
+                margin-bottom: 4px;
 
             }
 
@@ -336,7 +338,7 @@
                 border-radius: 5px;
                 padding: 12px;
                 background-color: $alabaster;
-                border:1px solid $silver;
+                border:1px solid $mercury;
                     @include tablet {
                         padding: 16px;
                         min-height: 48px;
@@ -360,7 +362,7 @@
             &__comment {
                 height: 96px;
                 padding-left: 10px;
-                border:1px solid $silver;
+                border:1px solid $mercury;
                 border-radius: 5px;
                 background-color: $alabaster;
                 padding-bottom: 70px;
@@ -393,9 +395,15 @@
                 border: none;
                 color: $white;
                 background-color: $bandsite-black;
+                &:hover {
+                    background-color: black;
+                    color: $silver;
+                }
                     @include tablet {
                         width: 30%;
                     }
+
+
             }
             }
         }

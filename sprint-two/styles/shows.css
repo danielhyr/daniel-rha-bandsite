@@ -557,7 +557,7 @@ body {
 }
 .shows-tickets-list__silver {
   font-family: "Avenir";
-  font-weight: 400;
+  font-weight: 600;
   font-style: normal;
   font-size: 10px;
   line-height: 18px;
@@ -617,4 +617,8 @@ body {
   .shows-tickets__button {
     width: 21%;
   }
+}
+.shows-tickets__button:hover {
+  background-color: black;
+  color: #AFAFAF;
 }/*# sourceMappingURL=shows.css.map */

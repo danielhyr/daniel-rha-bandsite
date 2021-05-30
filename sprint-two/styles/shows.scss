@@ -184,7 +184,7 @@
 
             }
             &__silver {                
-                @include font-family-normal;
+                @include font-family-bold;
                 @include font-properties(10px, 18px);
                 margin-top: 0;
                 margin-bottom: 6px;
@@ -233,6 +233,11 @@
             }
             @include desktop {
                 width: 21%;
+            }
+            &:hover {
+                background-color: black;
+                color: $silver;
+
             }
         }
     }
