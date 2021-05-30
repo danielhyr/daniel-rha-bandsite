@@ -27,6 +27,7 @@ let commentsLoaded = [
     },
     
 ]
+let body = document.querySelector('body')
 
 // Created function to make elements and give them classnames
 
@@ -75,7 +76,6 @@ function loadHtml () {
     for (let i = 0; i < commentsLoaded.length; i++) {
         displayComment(commentsLoaded[i])
     }
-        let body = document.querySelector('body')
         body.insertBefore(section, body.children[2])
     
     }
@@ -85,7 +85,7 @@ function loadHtml () {
     
 
 
-let form = document.querySelector('.comments-insert')
+let form = document.querySelector('.comments-form')
 
 // This eventlistener listens to the submit event, prevents its default page reloading default event, and checks if the fields are empty first.
 // If a field is empty, it gives it the attribute of "required"
@@ -127,3 +127,14 @@ form.addEventListener('submit', event => {
         loadHtml ()
     form.reset()
 }})
+
+// removing attribute of "required" if the user clicks anywhere else on the page, to turn it back to default
+
+body.addEventListener('click', e => {
+    let nameField = document.getElementById("name")
+    let commentField = document.getElementById("comment")
+
+    nameField.removeAttribute('required')
+    commentField.removeAttribute('required')
+
+})

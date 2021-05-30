@@ -85,13 +85,14 @@
 .iframe-container {
     display: flex;
     overflow: hidden;
-    width: 70%;
     z-index: 1;
     border-radius: 20px;
-    margin: 0 0 $sixteen  $sixteen;
+    margin: 0 0 $sixteen*2  $sixteen;
+    width: 80%;
 
     @include tablet {
     margin: 0 0 $sixteen  $sixteen*2.5;
+    width: 50%;
 
     @include desktop {
         align-self: center;

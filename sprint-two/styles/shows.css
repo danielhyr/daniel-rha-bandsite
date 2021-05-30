@@ -439,14 +439,15 @@ body {
 .iframe-container {
   display: flex;
   overflow: hidden;
-  width: 70%;
   z-index: 1;
   border-radius: 20px;
-  margin: 0 0 16px 16px;
+  margin: 0 0 32px 16px;
+  width: 80%;
 }
 @media (min-width: 768px) {
   .iframe-container {
     margin: 0 0 16px 40px;
+    width: 50%;
   }
 }
 @media (min-width: 768px) and (min-width: 1278px) {

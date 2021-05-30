@@ -282,13 +282,19 @@
 
         }
     }
-    &-insert {
+    &-form {
         position: relative;
+        transition: transform 0.5s;
+
         @include tablet {
             margin-right: $sixteen*2;
         }
         @include desktop {
             margin-right: 0;
+        }
+
+        &:focus-within {
+            transform: scale(1.03);
         }
         &__avatar {
             @include avatarMobile {
