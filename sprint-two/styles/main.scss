@@ -325,7 +325,7 @@
 
             &__name {
                 min-height: 36px;
-                border-radius: 5px;
+                border-radius: 4px;
                 padding: 12px;
                 background-color: $alabaster;
                 border:1px solid $mercury;
@@ -377,13 +377,12 @@
                 min-width: 150px;
                 padding:0 $sixteen*2;
                 align-self: flex-end;
-                border-radius: 5px;
+                border-radius: 4px;
                 border: none;
                 color: $white;
                 background-color: $bandsite-black;
                 &:hover {
                     background-color: black;
-                    color: $silver;
                 }
                     @include tablet {
                         width: 30%;
