@@ -16,8 +16,33 @@
   font-weight: 700;
   font-style: normal;
 }
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
+}
+
+input::-moz-placeholder {
+  font-family: "Avenir";
+  font-weight: 400;
+  font-style: normal;
+  color: #323232;
+}
+
+input:-ms-input-placeholder {
+  font-family: "Avenir";
+  font-weight: 400;
+  font-style: normal;
+  color: #323232;
+}
+
+input::placeholder {
+  font-family: "Avenir";
+  font-weight: 400;
+  font-style: normal;
+  color: #323232;
 }
 
 .header {
@@ -415,6 +440,7 @@ body {
 }
 @media (min-width: 768px) {
   .header-image__title {
+    width: 70%;
     font-size: 60px;
     line-height: 68px;
     padding: 0 36px;
@@ -422,6 +448,7 @@ body {
 }
 @media (min-width: 1278px) {
   .header-image__title {
+    width: 100%;
     padding: 36px 128px;
     margin-top: 0;
     padding-top: 0;
@@ -479,6 +506,7 @@ body {
   font-style: normal;
   font-size: 36px;
   line-height: 32px;
+  color: #323232;
   margin-top: 0;
   margin-bottom: 0;
   padding-top: 24px;
@@ -540,6 +568,7 @@ body {
 }
 .shows-tickets-list {
   min-width: 25%;
+  color: #323232;
 }
 @media (min-width: 768px) {
   .shows-tickets-list {

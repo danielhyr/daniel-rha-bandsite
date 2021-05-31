@@ -43,32 +43,34 @@ let section = makeElement('section', 'comments')
 
 //2. Create a function named displayComment that takes information from the objects and creates div items and appends it to the document
 
-function displayComment (arrayofClasses) {
+function displayComment (arrayofObjects) {
     // Create the outermost Div comments-pre
     let outerDiv = makeElement("div", "comments-pre");
-        outerDiv.classList.add(arrayofClasses.class)
+        outerDiv.classList.add(arrayofObjects.class)
         // Create the Ininer Div comments-pre-top
         let innerDiv = makeElement("div", "comments-pre-top");
             outerDiv.append(innerDiv)
             // comments-pre__circle 
-            let innerCircle = makeElement("div", arrayofClasses.pictureClass);
+            let innerCircle = makeElement("div", arrayofObjects.pictureClass);
             innerDiv.append(innerCircle)
                 // Create the inner P tags
                 let innerP = makeElement("p", "comments-pre-top__name")
-                innerP.innerText = arrayofClasses.name
+                innerP.innerText = arrayofObjects.name
                 innerDiv.append(innerP)
                 // Create the second inner P 
                 let innerP2 = makeElement("p", "comments-pre-top__date")
-                innerP2.innerText = arrayofClasses.date
+                innerP2.innerText = arrayofObjects.date
                 innerDiv.append(innerP2)
             //Create the outer p, for comment
             let innerP3 = makeElement("p", "comments-pre-bottom__loaded")
-            innerP3.innerText = arrayofClasses.comment
+            innerP3.innerText = arrayofObjects.comment
             outerDiv.append(innerP3)
             
          section.appendChild(outerDiv)
         return outerDiv
 }
+
+
 
 // Created another function loadHTML that repeats the above process as many times as the length of the given array of objects
 
@@ -120,6 +122,7 @@ form.addEventListener('submit', event => {
                 comment: userComment,
                 class: "comments-pre--newBorder",
                 pictureClass:"comments-pre__circle--pictureClass",
+                exactTime: Date.now(), 
             })
             nameField.removeAttribute('required')
             commentField.removeAttribute('required')
@@ -138,3 +141,31 @@ body.addEventListener('click', e => {
     commentField.removeAttribute('required')
 
 })
+
+// Making a timestamp: Timestamp function just for minutes and seconds
+
+// const timeAgo = (date) => {
+//     let seconds = Math.floor((new Date() - date) / 1000);
+      
+//     let interval = Math.floor(seconds / 60);
+//     if (interval > 1) {
+//         return interval + " minutes ago";
+//       }
+
+//       interval = Math.floor(seconds/1) ;
+//       if (interval > 1) {
+//         return Math.floor(seconds) + " seconds ago";
+//     }
+
+//       setTimeout(timeAgo, 1000);
+
+// }
+
+// // let innerPtime = makeElement("p", "comments-pre-top__timestamp")
+
+// // let timeVariable = arrayofObjects.exactTime
+
+// let aftime = new Date
+
+// let realTime = `${timeAgo(aftime)}`
+// I gave up

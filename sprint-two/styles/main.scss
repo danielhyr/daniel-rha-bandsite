@@ -7,18 +7,8 @@
 @import "./partials/global";
 
 
-    *{
-        box-sizing: border-box;
-    }
 
-    body {
-        margin: 0;
-    }
 
-    input::placeholder {
-        
-        color: $bandsite-black;
-    }
  // Header styling
 
   
@@ -348,10 +338,6 @@
                         border:1px solid $bandsite-black;
                     }
 
-                    &--invalid {
-                        outline: none;
-                        border:1px solid #D22D2D;
-                    }
                     &:invalid {
                         outline: none;
                         border:1px solid #D22D2D;

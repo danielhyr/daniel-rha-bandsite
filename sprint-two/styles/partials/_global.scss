@@ -1,7 +1,17 @@
   
+* {
+    box-sizing: border-box;
+}
     body {
         margin: 0;
     }
+
+input::placeholder {
+        @include font-family-normal;
+        color: $bandsite-black;
+    }
+
+// Classes
 
 .header{
     background-color: $bandsite-black;

@@ -63,10 +63,12 @@
         position: relative;
         z-index: 1;        
             @include tablet {
+                width: 70%;
                 @include font-properties(60px, 68px);
                 padding:0 $nonmobile-general-spacing;
             }   
             @include desktop {
+                width: 100%;
                 padding: $nonmobile-general-spacing $desktop-side-spacing;
                 margin-top: 0;
                 padding-top: 0;
@@ -124,6 +126,7 @@
     &__title{
         @include font-family-bold;
         @include font-properties(36px, 32px);
+        color: $bandsite-black;
             margin-top: 0;
             margin-bottom: 0;
             padding-top: 24px;
@@ -172,6 +175,8 @@
         }
         &-list {
             min-width: 25%;
+            color: $bandsite-black;
+
              @include tablet {
                  align-self: center;
              }

@@ -16,8 +16,33 @@
   font-weight: 700;
   font-style: normal;
 }
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
+}
+
+input::-moz-placeholder {
+  font-family: "Avenir";
+  font-weight: 400;
+  font-style: normal;
+  color: #323232;
+}
+
+input:-ms-input-placeholder {
+  font-family: "Avenir";
+  font-weight: 400;
+  font-style: normal;
+  color: #323232;
+}
+
+input::placeholder {
+  font-family: "Avenir";
+  font-weight: 400;
+  font-style: normal;
+  color: #323232;
 }
 
 .header {
@@ -348,26 +373,6 @@ body {
     color: paleturquoise;
   }
 }
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-}
-
-input::-moz-placeholder {
-  color: #323232;
-}
-
-input:-ms-input-placeholder {
-  color: #323232;
-}
-
-input::placeholder {
-  color: #323232;
-}
-
 .header-image {
   background-image: url("../assets/images/hero-bio.jpg");
   background-size: cover;
@@ -756,10 +761,6 @@ input::placeholder {
 .comments-form-wrapper__name:focus {
   outline: none;
   border: 1px solid #323232;
-}
-.comments-form-wrapper__name--invalid {
-  outline: none;
-  border: 1px solid #D22D2D;
 }
 .comments-form-wrapper__name:invalid {
   outline: none;
