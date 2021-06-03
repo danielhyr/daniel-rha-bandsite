@@ -120,7 +120,7 @@ createTickets(ticketsLoading)
 
 
 // For each button, log an Item to the console 
-
+let hello = document.querySelectorAll(".shows-tickets__button")
 let venueArray = ["Ronald Lane", "Pier 3 East", "View Lounge ", "Hyatt Agency", "Moscow Center", "Press Club" ]
 for (let i = 0; i < venueArray.length; i++) {
     document.querySelectorAll(".shows-tickets__button")[i].addEventListener("click", event => {

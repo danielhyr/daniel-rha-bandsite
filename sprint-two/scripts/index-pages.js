@@ -113,7 +113,6 @@ form.addEventListener('submit', event => {
             // , and the comment input.
             let userComment = commentField.value;
             // For Today's date
-            let todayVar = new Date()
             let date = '0' + (todayVar.getMonth()+1) + '/' + todayVar.getDate() + '/' + todayVar.getFullYear();
 
             commentsLoaded.unshift ({
@@ -144,28 +143,28 @@ body.addEventListener('click', e => {
 
 // Making a timestamp: Timestamp function just for minutes and seconds
 
-// const timeAgo = (date) => {
-//     let seconds = Math.floor((new Date() - date) / 1000);
+const timeAgo = (date) => {
+    let seconds = Math.floor((new Date() - date) / 1000);
       
-//     let interval = Math.floor(seconds / 60);
-//     if (interval > 1) {
-//         return interval + " minutes ago";
-//       }
+    let interval = Math.floor(seconds / 60);
+    if (interval > 1) {
+        return interval + " minutes ago";
+      }
 
-//       interval = Math.floor(seconds/1) ;
-//       if (interval > 1) {
-//         return Math.floor(seconds) + " seconds ago";
-//     }
+      interval = Math.floor(seconds/1) ;
+      if (interval > 1) {
+        return Math.floor(seconds) + " seconds ago";
+    } if (interval < 1) {
+        return "just now"
+    }
+}
 
-//       setTimeout(timeAgo, 1000);
 
-// }
 
-// // let innerPtime = makeElement("p", "comments-pre-top__timestamp")
+// let innerPtime = makeElement("p", "comments-pre-top__timestamp")
 
-// // let timeVariable = arrayofObjects.exactTime
+// let timeVariable = arrayofObjects.exactTime
 
-// let aftime = new Date
+let aftime = new Date()
 
-// let realTime = `${timeAgo(aftime)}`
 // I gave up

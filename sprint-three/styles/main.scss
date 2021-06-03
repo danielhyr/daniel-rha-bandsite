@@ -1,0 +1,465 @@
+@use "./partials/variables" as *;
+@use "./partials/typography" as *;
+@use "./partials/mixins" as *;
+
+// Importing the Nav bar and Footer styles
+
+@import "./partials/global";
+
+
+
+
+ // Header styling
+
+  
+
+// Hero Image Styling
+
+.header-image{
+    background-image: url("../assets/images/hero-bio.jpg");
+    background-size: cover;
+    background-position: center;
+    min-height: 300PX;
+    display: flex;
+    align-items: center;
+    position: relative;
+        @include tablet {
+            min-height: 500px;
+        }
+        @include desktop {
+            min-height: 700px;
+        }
+    
+    &__title{
+        @include font-family-bold;
+        @include font-properties(24px, 32px);
+        @include mobile-side-padding;
+        color: $white;
+        position: relative;
+        z-index: 1;        
+            @include tablet {
+                @include font-properties(60px, 68px);
+                padding:0 $nonmobile-general-spacing;
+            }   
+            @include desktop {
+                padding: $nonmobile-general-spacing $desktop-side-spacing;
+                padding-top: 0;
+            }
+        }    
+
+    &::after {
+        content: "";
+        position: absolute;
+        min-width: 100%;
+        min-height: 100%;
+        background-color: $bandsite-black;
+        opacity: 0.5;
+    }
+}
+// About styling
+
+.about {
+    color: $bandsite-black;
+    &-one {
+        @include mobile-side-padding;
+            @include tablet {
+                @include  tablet-side-padding;
+            }
+            @include desktop {
+                padding: 0 $desktop-side-spacing $nonmobile-general-spacing ;
+            }
+    }
+
+    &__title{
+        @include font-family-bold;
+        @include font-properties(24px, 32px);
+            margin-top: 0;
+            margin-bottom: 0;
+            padding-top: 24px;
+            padding-bottom: 16px;
+        @include tablet {
+            @include font-properties(36px, 44px);
+            padding-top: 48px;
+            padding-bottom: $nonmobile-general-spacing;
+        }
+    }
+
+    &__subtitle{
+        @include font-family-bold;
+        @include font-properties(14px, 22px);
+        margin: 0;
+        @include tablet {
+            @include tablet-side-padding;
+            @include font-properties(24px, 32px);
+            width: 100%;
+            padding-bottom: $nonmobile-general-spacing;
+        }
+        @include desktop {
+            padding: 0 80px;
+            padding-bottom: $nonmobile-general-spacing;
+        }
+    }
+
+    &__img {
+        height: 250px;
+        overflow: hidden;
+        background-image: url("../assets/images/band.jpg");
+        background-size: cover;
+        background-position: center;
+        position: relative;
+            @include tablet {
+                height: 450px;
+                margin: 0 $nonmobile-general-spacing;
+            }
+            @include desktop {
+                margin: 0 80px;
+            }
+    }
+
+    &__quote{
+        @include font-family-bold;
+        @include font-properties(14px, 22px);
+        @include tablet {
+            @include font-properties(24px, 32px);
+            margin:0 $nonmobile-general-spacing;
+            padding-top: $nonmobile-general-spacing;
+            padding-bottom: $nonmobile-general-spacing;
+            
+            @include desktop {
+                margin: 0 80px;
+            }
+            &--size {
+                @include tablet {
+                font-size: 1.5rem;
+                padding: 0;
+                }
+            }
+        }
+    }
+
+    &-two {
+        @include mobile-side-padding;
+        @include tablet {
+            @include tablet-side-padding;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                padding-top: 48px;
+                padding-bottom: $nonmobile-general-spacing;
+        }
+        @include desktop {
+            padding: $nonmobile-general-spacing $desktop-side-spacing;
+
+        }
+    }
+
+
+
+    &__content {
+        @include font-family-normal;
+        @include font-properties(13px, 18px);
+        @include tablet {
+                    @include font-properties(14px, 22px);
+                    width: 49%;
+                    margin-top: 0;
+                    margin-bottom: 0;
+                    padding-right: 0;
+                    padding-left: $nonmobile-general-spacing;
+                    @include desktop {
+                        padding-left: 80px;
+                    }
+        }
+        &--paraTwo {
+            @include tablet {
+                padding-left: 0;
+                padding-right: 36px;
+            }
+            @include desktop {
+                padding-right: 80px;
+
+            }
+            
+        }
+    }
+}
+
+        //   Gallery styling
+.gallery {
+    @include mobile-side-padding;
+    color: $bandsite-black;
+    background-color: $alabaster;
+    display: flex;
+    flex-direction: column;
+    @include tablet {
+        padding: 0;
+        }
+
+        // The Photo Gallery Warpper-Container
+    &-wrapper {
+        @include tablet {
+            @include tablet-side-padding;
+            padding-bottom: 36px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        @include desktop {
+            padding: $nonmobile-general-spacing $desktop-side-spacing;
+
+        }
+    }
+   
+
+    &__title {
+    @include font-family-bold;
+    @include font-properties(24px, 32px);
+    margin-top: 0;
+    margin-bottom:0;
+    padding-top: 24px;
+    padding-bottom: 16px;
+        @include tablet {
+            @include tablet-side-padding;
+            @include font-properties(36px, 44px);
+            width: 100%;
+            padding-top: 48px;
+            padding-bottom: $nonmobile-general-spacing;
+        }
+            @include desktop {
+            padding: 48px $desktop-side-spacing 0px;
+            margin-bottom: 0;
+        }
+    }
+
+    &__image {
+        max-width: 100%;
+        margin-bottom: 16px;
+        filter: grayscale(100%);
+        transition: filter 1s;
+        @include tablet {
+            max-width: 32%;
+            padding-bottom: 2%;
+            margin-bottom: 0;
+        }
+
+        &:hover {
+            filter: grayscale(0%);
+        }
+        
+        &--bottom {
+            @include tablet {
+                padding-bottom: 0;
+            }
+        }
+    }
+}
+
+// comments section styling
+
+.comments {
+    margin:0 $sixteen;
+
+    @include tablet {
+        margin:0 $sixteen*2;
+    }
+    @include desktop {
+        margin:0 $sixteen*8;
+    }
+    &__title{
+        @include font-family-bold;
+        @include font-properties(24px, 32px);
+        @include tablet {
+            @include font-properties(36px, 32px);
+
+        }
+    }
+    &-form {
+        position: relative;
+        transition: transform 0.5s;
+
+        @include tablet {
+            margin-right: $sixteen*2;
+        }
+        @include desktop {
+            margin-right: 0;
+        }
+
+        &:focus-within {
+            transform: scale(1.03);
+        }
+        &__avatar {
+            @include avatarMobile {
+                background-image: url(../assets/images/Mohan-muruge.jpg);
+                background-position: center;
+                background-size: cover;
+                position: absolute;
+                top: $sixteen*2;
+                @include tablet {
+                    left: $sixteen*4;
+                }
+                @include desktop {
+                    left: $sixteen*15;
+                }
+            }
+        }
+        &-wrapper {
+            display: flex;
+            flex-direction: column;
+            margin:0 0 $sixteen $sixteen*3;
+            @include tablet {
+                margin:0 $sixteen*2 $sixteen $sixteen*7;
+
+            }
+            @include desktop {
+                margin:0 $sixteen*15 $sixteen $sixteen*18;
+
+            }
+
+            &__label {
+                color: $silver;
+                @include font-family-bold;
+                @include font-properties(12px, 20px);
+                margin-top: $sixteen;
+                margin-bottom: 4px;
+
+            }
+
+            &__name {
+                min-height: 36px;
+                border-radius: 4px;
+                padding: 12px;
+                background-color: $alabaster;
+                border:1px solid $mercury;
+                    @include tablet {
+                        padding: 16px;
+                        min-height: 48px;
+                    }
+                    &:focus {
+                        outline: none;
+                        border:1px solid $bandsite-black;
+                    }
+
+                    &:invalid {
+                        outline: none;
+                        border:1px solid #D22D2D;
+                    }
+
+                
+            }
+            &__comment {
+                height: 96px;
+                padding-left: 10px;
+                border:1px solid $mercury;
+                border-radius: 5px;
+                background-color: $alabaster;
+                padding-bottom: 70px;
+                &:focus {
+                    outline: none;
+                    border:1px solid $bandsite-black;
+
+                }
+                
+                &--invalid {
+                    outline: none;
+                    border:1px solid #D22D2D;
+                }
+                &:invalid {
+                    outline: none;
+                    border:1px solid #D22D2D;
+                }
+
+            }
+
+            &__button {
+                @include font-family-bold;
+                height: 40px;
+                width: 100%;
+                margin-top: $sixteen;
+                min-width: 150px;
+                padding:0 $sixteen*2;
+                align-self: flex-end;
+                border-radius: 4px;
+                border: none;
+                color: $white;
+                background-color: $bandsite-black;
+                &:hover {
+                    background-color: black;
+                }
+                    @include tablet {
+                        width: 30%;
+                    }
+
+
+            }
+            }
+        }
+    &-pre {
+        @include font-family-normal;
+        border-bottom:1px solid $mercury;
+        @include tablet {
+            margin:0 $sixteen*4;
+        }
+        @include desktop {
+            margin:0 $sixteen*15;
+        }
+        &__circle{
+            @include avatarMobile;
+            background-color: $mercury;
+            position: absolute;
+            left: 0;
+            top: 16px;
+            &--pictureClass {
+                @include avatarMobile;
+                position: absolute;
+                left: 0;
+                top: 16px;
+                background-color: none;
+                background-image: url(../assets/images/Mohan-muruge.jpg);
+                background-position: center;
+                background-size: cover;
+            }
+        }
+        &--topBorder {
+            margin-top: 16px;
+            border-top: 1px solid $mercury;
+        }
+        &--bottomBorder {
+            margin-bottom: 16px;
+        }
+
+        &--newBorder {
+            border-top: 1px solid $mercury;
+            border-bottom: none;
+        }
+
+    &-top{
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        &__name{
+            @include font-tablet-body-properties ;
+            @include font-family-bold;
+            margin-left: 48px;
+
+        }
+        &__date {
+            color: $mercury;
+            @include font-tablet-body-properties;
+
+        }
+    }
+
+        &-bottom{
+            @include font-properties(14px, 22px);
+
+            &__loaded {
+                margin-top: 0;
+                margin-left: 48px;
+                max-width: 100%;
+                word-wrap: break-word;
+
+            }
+        }
+
+  } 
+}
+
