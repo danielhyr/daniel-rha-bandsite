@@ -747,7 +747,7 @@ input::placeholder {
 }
 .comments-form-wrapper__name {
   min-height: 36px;
-  border-radius: 5px;
+  border-radius: 4px;
   padding: 12px;
   background-color: #FAFAFA;
   border: 1px solid #E1E1E1;
@@ -767,12 +767,11 @@ input::placeholder {
   border: 1px solid #D22D2D;
 }
 .comments-form-wrapper__comment {
+  resize: none;
   height: 96px;
-  padding-left: 10px;
   border: 1px solid #E1E1E1;
   border-radius: 5px;
   background-color: #FAFAFA;
-  padding-bottom: 70px;
 }
 .comments-form-wrapper__comment:focus {
   outline: none;
@@ -790,20 +789,19 @@ input::placeholder {
   font-family: "Avenir";
   font-weight: 600;
   font-style: normal;
+  border: none;
   height: 40px;
   width: 100%;
+  background-color: #323232;
+  border-radius: 4px;
+  color: white;
   margin-top: 16px;
   min-width: 150px;
   padding: 0 32px;
   align-self: flex-end;
-  border-radius: 5px;
-  border: none;
-  color: white;
-  background-color: #323232;
 }
 .comments-form-wrapper__button:hover {
-  background-color: black;
-  color: #AFAFAF;
+  background-color: #000000;
 }
 @media (min-width: 768px) {
   .comments-form-wrapper__button {
@@ -875,6 +873,42 @@ input::placeholder {
   color: #E1E1E1;
   font-size: 14px;
   line-height: 22px;
+}
+.comments-pre-top__like {
+  font-size: 14px;
+  line-height: 22px;
+  font-family: "Avenir";
+  font-weight: 600;
+  font-style: normal;
+  max-height: 30px;
+  align-self: center;
+  justify-self: flex-end;
+  border: none;
+  background-color: #AFAFAF;
+  border-radius: 4px;
+  position: absolute;
+  right: 80px;
+}
+.comments-pre-top__like:hover {
+  transform: scale(1.1);
+}
+.comments-pre-top__delete {
+  font-size: 14px;
+  line-height: 22px;
+  font-family: "Avenir";
+  font-weight: 600;
+  font-style: normal;
+  max-height: 30px;
+  align-self: center;
+  justify-self: flex-end;
+  border: none;
+  background-color: #E1E1E1;
+  border-radius: 4px;
+  position: absolute;
+  right: 145px;
+}
+.comments-pre-top__delete:hover {
+  transform: scale(1.1);
 }
 .comments-pre-bottom {
   font-size: 14px;

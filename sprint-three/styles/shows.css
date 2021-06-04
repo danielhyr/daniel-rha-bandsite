@@ -467,7 +467,7 @@ input::placeholder {
   display: flex;
   overflow: hidden;
   z-index: 1;
-  border-radius: 20px;
+  border-radius: 15px;
   margin: 0 0 32px 16px;
   width: 80%;
 }
@@ -648,6 +648,5 @@ input::placeholder {
   }
 }
 .shows-tickets__button:hover {
-  background-color: black;
-  color: #AFAFAF;
+  background-color: #000000;
 }/*# sourceMappingURL=shows.css.map */
