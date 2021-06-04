@@ -450,18 +450,28 @@
         &__like {
             @include font-tablet-body-properties ;
             @include font-family-bold;
+            display: flex;
+            justify-content: space-evenly;
             max-height: 30px;
+            width: 70px;
             align-self: center;
             justify-self: flex-end;
-            border: none;
+            border: 2px solid blue;
             background-color: $silver;
             border-radius: 4px;
             position: absolute;
             right: 80px;
-
             &:hover {
                 transform: scale(1.1);
             }
+        }
+
+        &__thumbsUp {
+            max-width: 23px;
+            border-radius: 10px;
+            position: absolute;
+            bottom: 8px;
+            left: -2px;
         }
 
         
@@ -471,14 +481,14 @@
             max-height: 30px;
             align-self: center;
             justify-self: flex-end;
-            border: none;
+            border: 2px solid red;
             background-color: $mercury;
             border-radius: 4px;
             position: absolute;
-            right: 145px;
+            right: 155px;
             &:hover {
                 transform: scale(1.1);
-            }
+            }   
         }
     }
 
@@ -496,4 +506,8 @@
 
   } 
 }
+
+
+
+// Thumbs Up Icon
 

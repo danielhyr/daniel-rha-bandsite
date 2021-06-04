@@ -24,25 +24,40 @@ body {
   margin: 0;
 }
 
-input::-moz-placeholder {
+input::-moz-placeholder, textarea::-moz-placeholder {
   font-family: "Avenir";
   font-weight: 400;
   font-style: normal;
   color: #323232;
 }
 
-input:-ms-input-placeholder {
+input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   font-family: "Avenir";
   font-weight: 400;
   font-style: normal;
   color: #323232;
 }
 
-input::placeholder {
+input::placeholder, textarea::placeholder {
   font-family: "Avenir";
   font-weight: 400;
   font-style: normal;
   color: #323232;
+}
+
+textarea::-moz-placeholder {
+  padding-left: 16px;
+  padding-top: 4px;
+}
+
+textarea:-ms-input-placeholder {
+  padding-left: 16px;
+  padding-top: 4px;
+}
+
+textarea::placeholder {
+  padding-left: 16px;
+  padding-top: 4px;
 }
 
 .header {

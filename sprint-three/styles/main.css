@@ -24,25 +24,40 @@ body {
   margin: 0;
 }
 
-input::-moz-placeholder {
+input::-moz-placeholder, textarea::-moz-placeholder {
   font-family: "Avenir";
   font-weight: 400;
   font-style: normal;
   color: #323232;
 }
 
-input:-ms-input-placeholder {
+input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   font-family: "Avenir";
   font-weight: 400;
   font-style: normal;
   color: #323232;
 }
 
-input::placeholder {
+input::placeholder, textarea::placeholder {
   font-family: "Avenir";
   font-weight: 400;
   font-style: normal;
   color: #323232;
+}
+
+textarea::-moz-placeholder {
+  padding-left: 16px;
+  padding-top: 4px;
+}
+
+textarea:-ms-input-placeholder {
+  padding-left: 16px;
+  padding-top: 4px;
+}
+
+textarea::placeholder {
+  padding-left: 16px;
+  padding-top: 4px;
 }
 
 .header {
@@ -880,10 +895,13 @@ input::placeholder {
   font-family: "Avenir";
   font-weight: 600;
   font-style: normal;
+  display: flex;
+  justify-content: space-evenly;
   max-height: 30px;
+  width: 70px;
   align-self: center;
   justify-self: flex-end;
-  border: none;
+  border: 2px solid blue;
   background-color: #AFAFAF;
   border-radius: 4px;
   position: absolute;
@@ -891,6 +909,13 @@ input::placeholder {
 }
 .comments-pre-top__like:hover {
   transform: scale(1.1);
+}
+.comments-pre-top__thumbsUp {
+  max-width: 23px;
+  border-radius: 10px;
+  position: absolute;
+  bottom: 8px;
+  left: -2px;
 }
 .comments-pre-top__delete {
   font-size: 14px;
@@ -901,11 +926,11 @@ input::placeholder {
   max-height: 30px;
   align-self: center;
   justify-self: flex-end;
-  border: none;
+  border: 2px solid red;
   background-color: #E1E1E1;
   border-radius: 4px;
   position: absolute;
-  right: 145px;
+  right: 155px;
 }
 .comments-pre-top__delete:hover {
   transform: scale(1.1);

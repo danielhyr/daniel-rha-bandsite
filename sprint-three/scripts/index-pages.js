@@ -26,33 +26,38 @@ const API_KEY = "47bba9b7-d7ec-48dc-a68a-93ec482f02de";
 
 // axios get request
 
-axios
-.get(`${COMMENT_URL}?api_key=${API_KEY}`)
-    .then(result => console.log(result))
 
-
-
-
-    function hello (comment) {
+// Function that updates your likes
+    function updateLike (comment) {
     let likeButton = document.querySelector(".comments-pre-top__like")
     likeButton.addEventListener('click', () => {
         axios.put(`${COMMENT_URL}/${comment}/like?api_key=${API_KEY}`, {
-            "name": "Nigel",
-            "comment": "What a cool site",
             "id": comment.id,
             "likes": 1,
             "timestamp": 1530744795832
-
         }).then(() => {
             document.querySelectorAll(".comments-pre").forEach(event => event.remove())
             displayComment()
 
 
-        })
+        }).catch(error=> {console.log(error)})
 
     })
 
 }
+
+// Function that deletes your copmments
+function deleteComment (comment) {
+    let deleteButton = document.querySelector(".comments-pre-top__delete")
+    deleteButton.addEventListener('click', () => {
+        axios.delete(`${COMMENT_URL}/${comment}/?api_key=${API_KEY}`).then(() => {
+            document.querySelectorAll(".comments-pre").forEach(event => event.remove())
+            displayComment()
+        }).catch(error=> {console.log(error)})
+    })
+}
+// Functino that displays Comments retrieved from API
+
 const displayComment = () => {
     axios
     .get(`${COMMENT_URL}?api_key=${API_KEY}`)
@@ -60,44 +65,15 @@ const displayComment = () => {
             const commentsArray = result.data
             console.log(result.data)
             commentsArray.forEach((comment) => {
-                
-            //     if (comment.name === "Connor Walton") {
-            //         innerDisplay(comment, "top", "", comment.likes)
 
-            // } else if (comment.name === "Emilie Beach") {
-            //     innerDisplay(comment, "middle", "", comment.likes)
-
-            // } else if (comment.name === "Miles Acosta"){
-            //     innerDisplay(comment, "bottom", "", comment.likes)
-
-            // } else {
-                innerDisplayFirst(comment, "new", "--pictureClass", comment.likes)
-                if (comment.name === "Connor Walton") { 
-
+                if (comment.name ==="Connor Walton" || comment.name === "Emilie Beach" || comment.name ==="Miles Acosta"){
+                    innerDisplayFirst(comment, "new", "", comment.likes)}
+                else {
+                    innerDisplayFirst(comment, "new", "--pictureClass", comment.likes)
                 }
-
-            
-            hello (comment.id)
-
-
-            // let likeButton = document.querySelector(".comments-pre-top__like")
-            // likeButton.addEventListener('click', () => {
-            //     axios.put(`${COMMENT_URL}/${comment.id}/like?api_key=${API_KEY}`, {
-            //         "name": "Nigel",
-            //         "comment": "What a cool site",
-            //         "id": comment.id,
-            //         "likes": 1,
-            //         "timestamp": 1530744795832
-
-            //     }).then(() => {
-            //         document.querySelectorAll(".comments-pre").forEach(event => event.remove())
-            //         displayComment()
-
-
-            //     })
-
-            // })
-        })
+                updateLike (comment.id)
+                deleteComment (comment.id)
+            })
 
         }).catch(error => console.log(error))
                 body.insertBefore(section, body.children[2])
@@ -106,68 +82,10 @@ const displayComment = () => {
 }
 
 
-
-// function likeComments (selectLikeButton, commentURL, commentID, apiKey) {
-//     let likeButton = document.querySelector(selectLikeButton)
-//     likeButton.addEventListener('click', () => {
-//         axios.put(commentURL +`/${commentID}/like?api_key=` + apiKey, {
-//             "name": "Nigel",
-//             "comment": "What a cool site",
-//             "id": commentID,
-//             "likes": 1,
-//             "timestamp": 1530744795832
-
-//         }).then(() => {
-//             document.querySelectorAll(".comments-pre").forEach(event => event.remove())
-//             displayComment()
-
-//         })
-
-
-//     })
-
-// }
-
-
 displayComment()
 
-// Function innerdisplay to display comments
+// Function innerdisplayFirst that creates comment Elements
 
-function innerDisplay (comment, position, picture, like) {
-    let outerDiv = makeElement("div", "comments-pre");
-    outerDiv.classList.add(`comments-pre--${position}Border`)
-
-    let innerDiv = makeElement("div", "comments-pre-top");
-    outerDiv.append(innerDiv)
-
-    let innerCircle = makeElement("div", `comments-pre__circle${picture}`);
-    innerDiv.append(innerCircle)
-
-    let innerP = makeElement("p", "comments-pre-top__name")
-    innerP.innerText = comment.name
-    innerDiv.append(innerP)
-
-    let innerLike = makeElement("button", "comments-pre-top__like")
-    innerLike.innerText = `Likes:${like}`
-    innerDiv.append(innerLike)
-
-    let innerDelete = makeElement("button", "comments-pre-top__delete")
-    innerDelete.innerText = "delete"
-    innerDiv.append(innerDelete)
-    
-    
-    let innerP2 = makeElement("p", "comments-pre-top__date")
-    let dateVar = new Date(Number(comment.timestamp))
-    let dateFormatted =  ('0' + (dateVar.getMonth()+1)).slice(-2) + '/' + ('0' + dateVar.getDate()).slice(-2) + '/' + dateVar.getFullYear();
-    innerP2.innerText = dateFormatted
-    innerDiv.append(innerP2)
-    let innerP3 = makeElement("p", "comments-pre-bottom__loaded")
-    innerP3.innerText = comment.comment
-    outerDiv.append(innerP3)
-
-    section.appendChild(outerDiv)
-        return outerDiv
-}
 
 function innerDisplayFirst (comment, position, picture, like) {
     let outerDiv = makeElement("div", "comments-pre");
@@ -185,11 +103,11 @@ function innerDisplayFirst (comment, position, picture, like) {
 
     
     let innerLike = makeElement("button", "comments-pre-top__like")
-    innerLike.innerText = `Likes:${like}`
+    innerLike.innerHTML = `<img class ="comments-pre-top__thumbsUp" src = "assets/icons/thumbsUp.png.png"></img>Like:${like}`
     innerDiv.append(innerLike)
 
     let innerDelete = makeElement("button", "comments-pre-top__delete")
-    innerDelete.innerText = "delete"
+    innerDelete.innerText = "Delete"
     innerDiv.append(innerDelete)
 
     let innerP2 = makeElement("p", "comments-pre-top__date")
@@ -205,7 +123,6 @@ function innerDisplayFirst (comment, position, picture, like) {
     section.appendChild(outerDiv)
 
     section.insertBefore(outerDiv, section.children[0])
-
 
 
     return outerDiv
@@ -231,8 +148,6 @@ form.addEventListener('submit', event => {
     } 
     
     else { 
-        // section.innerHTML =""
-
         document.querySelectorAll(".comments-pre").forEach(event => event.remove())
             // variables for the document to select, the name input
             // , and the comment input.
@@ -249,7 +164,7 @@ form.addEventListener('submit', event => {
                 commentField.removeAttribute('required')
                 displayComment()
 
-            })
+            }).catch(error => console.log(error))
 
 
             form.reset()

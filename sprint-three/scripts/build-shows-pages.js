@@ -52,11 +52,8 @@ function createLi (innerText, stringName, arrayClassValue, arrayInnerText) {
 function createUl (object) {
     let outerUl = makeElement("ul", "shows-tickets")
     let innerButton = makeElement("button", "shows-tickets__button")
-
-    let dateVar = new Date(Number(object.date))
-    let dateFormatted =  ('0' + (dateVar.getMonth()+1)).slice(-2) + '/' + ('0' + dateVar.getDate()).slice(-2) + '/' + dateVar.getFullYear();
-
-        innerLi1 = createLi("DATES", "date", "shows-tickets-list__body--dissapear", dateFormatted)
+    let dateVar = new Date(Number(object.date)).toDateString()
+        innerLi1 = createLi("DATES", "date", "shows-tickets-list__body--dissapear", dateVar)
         innerLi2 = createLi("VENUE", "body", "shows-tickets-list__body--dissapear", object.place)
         innerLi3 = createLi("LOCATION", "body", "shows-tickets-list__body--dissapear", object.location)
 
