@@ -284,7 +284,7 @@
         }
 
         &:focus-within {
-            transform: scale(1.03);
+            transform: scale(1.01);
         }
         &__avatar {
             @include avatarMobile {
@@ -423,6 +423,7 @@
             border-top: 1px solid $mercury;
         }
         &--bottomBorder {
+            border-top: 1px solid $mercury;
             margin-bottom: 16px;
         }
 
@@ -476,19 +477,25 @@
 
         
         &__delete {
-            @include font-tablet-body-properties ;
             @include font-family-bold;
             max-height: 30px;
             align-self: center;
             justify-self: flex-end;
             border: 2px solid red;
-            background-color: $mercury;
-            border-radius: 4px;
+            color: white;
+            background-color: firebrick;
+            border-radius: 5px;
             position: absolute;
-            right: 155px;
+            left: 5px;
+            top: 64px;
+            transition: transform 0.2s;
+            filter:grayscale(20%);
             &:hover {
                 transform: scale(1.1);
-            }   
+            }  
+            &:active {
+                color: red;
+            }
         }
     }
 
@@ -496,6 +503,7 @@
             @include font-properties(14px, 22px);
 
             &__loaded {
+                min-height: 32px;
                 margin-top: 0;
                 margin-left: 48px;
                 max-width: 100%;

@@ -46,17 +46,17 @@ input::placeholder, textarea::placeholder {
 }
 
 textarea::-moz-placeholder {
-  padding-left: 16px;
+  padding-left: 12px;
   padding-top: 4px;
 }
 
 textarea:-ms-input-placeholder {
-  padding-left: 16px;
+  padding-left: 12px;
   padding-top: 4px;
 }
 
 textarea::placeholder {
-  padding-left: 16px;
+  padding-left: 12px;
   padding-top: 4px;
 }
 
@@ -713,7 +713,7 @@ textarea::placeholder {
   }
 }
 .comments-form:focus-within {
-  transform: scale(1.03);
+  transform: scale(1.01);
 }
 .comments-form__avatar {
   height: 36px;
@@ -865,6 +865,7 @@ textarea::placeholder {
   border-top: 1px solid #E1E1E1;
 }
 .comments-pre--bottomBorder {
+  border-top: 1px solid #E1E1E1;
   margin-bottom: 16px;
 }
 .comments-pre--newBorder {
@@ -918,8 +919,6 @@ textarea::placeholder {
   left: -2px;
 }
 .comments-pre-top__delete {
-  font-size: 14px;
-  line-height: 22px;
   font-family: "Avenir";
   font-weight: 600;
   font-style: normal;
@@ -927,19 +926,27 @@ textarea::placeholder {
   align-self: center;
   justify-self: flex-end;
   border: 2px solid red;
-  background-color: #E1E1E1;
-  border-radius: 4px;
+  color: white;
+  background-color: firebrick;
+  border-radius: 5px;
   position: absolute;
-  right: 155px;
+  left: 5px;
+  top: 64px;
+  transition: transform 0.2s;
+  filter: grayscale(20%);
 }
 .comments-pre-top__delete:hover {
   transform: scale(1.1);
+}
+.comments-pre-top__delete:active {
+  color: red;
 }
 .comments-pre-bottom {
   font-size: 14px;
   line-height: 22px;
 }
 .comments-pre-bottom__loaded {
+  min-height: 32px;
   margin-top: 0;
   margin-left: 48px;
   max-width: 100%;

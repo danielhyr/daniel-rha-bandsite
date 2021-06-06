@@ -30,40 +30,43 @@ const API_KEY = "47bba9b7-d7ec-48dc-a68a-93ec482f02de";
 // Function that updates your likes
     function updateLike (comment) {
     let likeButton = document.querySelector(".comments-pre-top__like")
-    likeButton.addEventListener('click', () => {
-        axios.put(`${COMMENT_URL}/${comment}/like?api_key=${API_KEY}`, {
+    likeButton.addEventListener('click', (event) => {
+        axios.put(`${COMMENT_URL}/${comment.id}/like?api_key=${API_KEY}`, {
             "id": comment.id,
             "likes": 1,
             "timestamp": 1530744795832
         }).then(() => {
             document.querySelectorAll(".comments-pre").forEach(event => event.remove())
             displayComment()
-
+            
 
         }).catch(error=> {console.log(error)})
 
     })
 
 }
+
 
 // Function that deletes your copmments
 function deleteComment (comment) {
     let deleteButton = document.querySelector(".comments-pre-top__delete")
     deleteButton.addEventListener('click', () => {
-        axios.delete(`${COMMENT_URL}/${comment}/?api_key=${API_KEY}`).then(() => {
+        axios.delete(`${COMMENT_URL}/${comment.id}/?api_key=${API_KEY}`).then(() => {
             document.querySelectorAll(".comments-pre").forEach(event => event.remove())
             displayComment()
         }).catch(error=> {console.log(error)})
     })
 }
-// Functino that displays Comments retrieved from API
+// Function that displays Comments retrieved from API
 
 const displayComment = () => {
     axios
     .get(`${COMMENT_URL}?api_key=${API_KEY}`)
         .then(result => {
             const commentsArray = result.data
-            console.log(result.data)
+            commentsArray.sort((a, b) => {
+                return a.timestamp - b.timestamp
+            })
             commentsArray.forEach((comment) => {
 
                 if (comment.name ==="Connor Walton" || comment.name === "Emilie Beach" || comment.name ==="Miles Acosta"){
@@ -71,20 +74,23 @@ const displayComment = () => {
                 else {
                     innerDisplayFirst(comment, "new", "--pictureClass", comment.likes)
                 }
-                updateLike (comment.id)
-                deleteComment (comment.id)
+                updateLike (comment)
+                deleteComment (comment)
             })
 
+            let nodes = document.querySelectorAll(".comments-pre")
+            let lastNode = nodes[nodes.length-1]
+            lastNode.classList.add("comments-pre--bottomBorder")
+            lastNode.classList.remove("comments-pre--newBorder")
         }).catch(error => console.log(error))
                 body.insertBefore(section, body.children[2])
-
                 
 }
 
 
 displayComment()
 
-// Function innerdisplayFirst that creates comment Elements
+// Function innerdisplayFirst that creates comment Elements and puts new comments at the top of the container
 
 
 function innerDisplayFirst (comment, position, picture, like) {
@@ -107,7 +113,7 @@ function innerDisplayFirst (comment, position, picture, like) {
     innerDiv.append(innerLike)
 
     let innerDelete = makeElement("button", "comments-pre-top__delete")
-    innerDelete.innerText = "Delete"
+    innerDelete.innerText = "X"
     innerDiv.append(innerDelete)
 
     let innerP2 = makeElement("p", "comments-pre-top__date")
@@ -133,7 +139,7 @@ let form = document.querySelector('.comments-form')
 // This eventlistener listens to the submit event, prevents its default page reloading default event, and checks if the fields are empty first.
 // If a field is empty, it gives it the attribute of "required"
 // If they are filled out, it takes those information, stores it into an object, and pushes it into the existing array of objects, removes the attributes, then
-// They call on the loadHtml function to reload the new comments section again, this time with the new comment
+// They call on the loadHtml function to reload the new comments section again, this time with the new comment from the axios 
 
 form.addEventListener('submit', event => {
     event.preventDefault();
@@ -166,7 +172,6 @@ form.addEventListener('submit', event => {
 
             }).catch(error => console.log(error))
 
-
             form.reset()
 }})
 
@@ -181,8 +186,5 @@ body.addEventListener('click', e => {
 
 })
 
-function turnDate () {
-
-}
 
 

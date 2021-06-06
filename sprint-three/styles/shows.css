@@ -46,17 +46,17 @@ input::placeholder, textarea::placeholder {
 }
 
 textarea::-moz-placeholder {
-  padding-left: 16px;
+  padding-left: 12px;
   padding-top: 4px;
 }
 
 textarea:-ms-input-placeholder {
-  padding-left: 16px;
+  padding-left: 12px;
   padding-top: 4px;
 }
 
 textarea::placeholder {
-  padding-left: 16px;
+  padding-left: 12px;
   padding-top: 4px;
 }
 
